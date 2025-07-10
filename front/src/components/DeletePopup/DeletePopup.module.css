@@ -1,0 +1,204 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(16, 16, 16, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(4px);
+}
+
+.popup {
+    background-color: var(--very-dark-blue);
+    width: auto;
+    padding: 0px 90px;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    border-radius: 7px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+    cursor: default;
+}
+
+.popupTop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.popupTitle {
+    font-size: 2.4em;
+    font-weight: 500;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.popupText {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--white-transparent);
+    letter-spacing: 1px;
+}
+
+.buttonsWrapper {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+}
+
+.buttonText {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+}
+
+.deleteButton {
+    width: auto;
+    min-width: 180px;
+    height: auto;
+    min-height: 40px;
+    padding: 5px 18px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-color: var(--dark-red);
+    border-radius: 10px;
+}
+
+
+.cancelButton {
+    width: auto;
+    min-width: 84px;
+    height: auto;
+    min-height: 32px;
+    padding: 5px 18px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1px solid var(--blue);
+}
+
+.buttonText {
+    margin: 0;
+    font-weight: 500;
+}
+
+.deleteButton,
+.cancelButton {
+    transition: 0.3s ease;
+}
+
+.deleteButton:hover {
+    background-color: var(--darker-red);
+}
+
+.cancelButton:hover {
+    background-color: var(--blue);
+}
+
+
+.inputWrapper {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 3px;
+}
+
+.label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.inputContainer input {
+    width: 100%;
+    cursor: text;
+    background-color: unset;
+    border: unset;
+    outline: unset;
+    text-align: left;
+}
+
+.inputContainer {
+    width: 100%;
+    height: auto;
+    padding: 7px 15px;
+    border-radius: 20px;
+    border: 1px solid #CACACA;
+    transition: 0.3s ease;
+}
+
+.inputContainer:focus-within,
+.inputContainer:hover {
+    border-color: var(--light-blue);
+}
+
+.inputContainer.error {
+    border-color: var(--dark-red);
+}
+
+.inputContainer input::placeholder {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--white-transparent);
+}
+
+.inputContainerInner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+}
+
+.inputContainerInner input {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: white;
+}
+
+.errorMessage {
+    width: 100%;
+    text-align: start;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--dark-red);
+}
+
+.errorMessage {
+    color: var(--red);
+    font-size: 1.3rem;
+    margin-top: 4px;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

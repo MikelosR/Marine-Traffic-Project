@@ -1,0 +1,65 @@
+.popup {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    width: 320px;
+    font-size: 1.6rem;
+}
+
+.title {
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.info {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.fieldGroup {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fieldGroup label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+}
+
+input[type="number"] {
+    padding: 6px 10px;
+    font-size: 1.4rem;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+}
+
+.buttonGroup {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.saveBtn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    font-size: 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.deleteBtn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    font-size: 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+}

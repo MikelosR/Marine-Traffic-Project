@@ -1,0 +1,269 @@
+.vesselsWrapper {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 100px;
+}
+
+.vesselsHead {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+}
+
+.vesselsTitle {
+    color: var(--very-dark-blue);
+    font-size: 3.2rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.vesselsTools {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+
+
+
+/* BODY  */
+.vesselsBodyWrapper {
+    width: 100%;
+    padding: 0px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.vesselsTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.colName {
+    width: 20%;
+    min-width: 180px;
+}
+
+.colCountry {
+    width: 25%;
+    min-width: 160px;
+}
+
+.colMMSI {
+    width: 15%;
+    min-width: 120px;
+}
+
+.colType {
+    text-transform: capitalize !important;
+    width: 20%;
+    min-width: 150px;
+}
+
+.colButton {
+    width: 20%;
+    min-width: 120px;
+}
+
+.vesselsTable thead {
+    width: 100%;
+}
+
+.vesselsTable thead tr {
+
+    width: 100%;
+    height: 70px;
+    background-color: #FAFAFA;
+    border-bottom: 1px solid #D0CFCF;
+}
+
+.vesselsTable thead tr th span {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 0px 20px;
+}
+
+.vesselsTable thead tr th p {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--very-dark-blue);
+    letter-spacing: 1px;
+}
+
+.vesselsTable tbody tr {
+    height: 55px;
+
+}
+
+.vesselsTable tbody tr:nth-of-type(even) {
+    background-color: #FAFAFA;
+}
+
+.vesselsTable tbody tr td {
+    padding: 0px 20px;
+}
+
+.vesselName {
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--link-color);
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.countryWrapper,
+.typeWrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.countryWrapper p,
+.vesselMMSI {
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--very-dark-blue);
+    letter-spacing: 1px;
+}
+
+.typeWrapper {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--very-dark-blue);
+    letter-spacing: 1px;
+}
+
+.vesselsButtonWrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.pastTrackButton,
+.addFleetButton {
+    padding: 0px 15px;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    gap: 7px;
+    border: 1px solid var(--light-blue);
+    transition: 0.3s ease;
+    white-space: nowrap;
+}
+
+.addFleetButton {
+    padding: 0px 15px;
+}
+
+.pastTrackButton p,
+.addFleetButton p {
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: var(--light-blue);
+    transition: 0.3s ease;
+}
+
+.pastTrackButton:hover,
+.addFleetButton:hover {
+    background-color: var(--light-blue);
+}
+
+.pastTrackButton:hover p,
+.addFleetButton:hover p {
+    color: white;
+}
+
+.addFleetButton svg path {
+    transition: 0.3s ease;
+}
+
+.addFleetButton:hover svg path {
+    stroke: white;
+}
+
+.highlight {
+    background-color: rgba(242, 221, 4, 0.35);
+}
+
+.noResultsWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.noResultsWrapper p {
+    margin-top: -20px;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--very-dark-blue);
+    letter-spacing: 1px;
+}
+
+.fleetButton {
+    width: 45px;
+    height: 45px;
+    background-color: var(--very-dark-blue);
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease;
+}
+
+.fleetButton:hover svg {
+    transition: 0.3s ease-in-out;
+}
+
+.fleetButton:hover {
+    background-color: var(--blue);
+}
+
+.fleetButton:hover svg {
+    transform: scale(1.1);
+}
+
+.fleetActive {
+    background-color: var(--blue);
+}
+
+.addFleetButtonActive {
+    padding: 0px 15px;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    gap: 7px;
+    border: 1px solid #ED2436;
+    transition: 0.3s ease;
+}
+
+.addFleetButtonActive:hover {
+    background-color: #ED2436;
+}
+
+.addFleetButtonActive svg path {
+    transition: 0.3s ease;
+}
+
+.addFleetButtonActive:hover svg path {
+    stroke: white;
+    fill: white;
+}

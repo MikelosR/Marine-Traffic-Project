@@ -1,0 +1,85 @@
+.dropdownWrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.notificationsButton {
+    background-color: var(--link-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36.75px;
+    width: 36.75px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.notificationsDropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    width: 300px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 10000;
+    font-size: 1.5rem;
+    border: 1px solid var(--input2);
+}
+
+.dropdownHeader {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    font-weight: 800;
+    font-size: 1.7rem;
+}
+
+.dropdownList {
+    background-color: white;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.notificationCount {
+    width: 23px;
+    height: 23px;
+    top: -5px;
+    right: -5px;
+    background-color: var(--red);
+    color: white;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    font-weight: bold;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+}
+
+.notificationItem {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.notificationItem:last-child {
+    border-bottom: none;
+}
+
+.constraintsList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: var(--red);
+}
+
+.itemHeader {
+    display: flex;
+    align-items: center;
+}
+
+.noNotifications {
+    padding: 1rem;
+}

@@ -1,0 +1,78 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.paginationPrev,
+.paginationNext {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.paginationPrev svg path,
+.paginationNext svg path,
+.paginationPrev p,
+.paginationNext p,
+.pageButton p {
+    transition: 0.3s ease;
+}
+
+.paginationNext svg {
+    rotate: 180deg;
+}
+
+.paginationPrev p,
+.paginationNext p,
+.pageButton p {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--very-dark-blue);
+    letter-spacing: 1px;
+}
+
+.disabledPagination {
+    cursor: not-allowed;
+}
+
+.disabledPagination svg path {
+    fill: #838A92;
+}
+
+.disabledPagination p {
+    color: #838A92;
+}
+
+.paginationNumbers {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.pageButton {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease;
+}
+
+.activePageButton {
+    background-color: var(--very-dark-blue);
+    cursor: default;
+}
+
+.activePageButton p {
+    color: white;
+}
+
+.dots {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

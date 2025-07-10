@@ -1,0 +1,239 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(16, 16, 16, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(4px);
+}
+
+
+.popup {
+    background-color: white;
+    width: auto;
+    min-width: 689px;
+    padding: 1rem;
+    height: auto;
+    /* min-height: 650px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 2rem;
+    border-radius: 7px;
+    box-shadow: 0 4px 10px 7px rgba(0, 0, 0, 0.05);
+    position: relative;
+    animation: fadeIn 0.3s ease;
+    cursor: default;
+}
+
+.popupHover {
+    z-index: 999999999;
+}
+
+.popupTop {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .3rem 1.5rem;
+}
+
+.popupTop h2 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: var(--very-dark-blue);
+    letter-spacing: 1px;
+}
+
+.popupForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.formWrapper {
+    width: 100%;
+    padding: 0 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.formInputText,
+.formInputSelect {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.editLabel {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--light-blue);
+    letter-spacing: 1px;
+}
+
+.formInputText input {
+    height: 41px;
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem;
+    border: 1px solid #CACACA;
+    border-radius: 10px;
+
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--dark-blue);
+    letter-spacing: 1%;
+    cursor: text;
+    transition: 0.3s ease;
+    outline: 1px solid transparent;
+    font-family: 'Manrope', sans-serif;
+}
+
+
+.formInputText input::placeholder {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #CACACA;
+    letter-spacing: 1%;
+}
+
+.formInputText input:focus,
+.formInputText input:hover {
+    border-color: var(--light-blue);
+    outline-color: var(--light-blue);
+}
+
+.formInputSelect select {
+    height: 41px;
+    padding: 0 1.5rem;
+    border: 1px solid #CACACA;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--dark-blue);
+    letter-spacing: 1%;
+    cursor: pointer;
+    background-color: white;
+    appearance: none;
+    /* Remove default arrow on some browsers */
+    outline: 1px solid transparent;
+    transition: 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.formInputSelect select option[disabled] {
+    opacity: 100%;
+    color: #CACACA;
+    letter-spacing: 1%;
+}
+
+
+.formInputSelect select:focus,
+.formInputSelect select:hover {
+    border-color: var(--light-blue);
+    outline-color: var(--light-blue);
+}
+
+.formInputSelect {
+    position: relative;
+}
+
+.formInputSelect select {
+    padding-right: 3rem;
+
+
+    /* Remove default arrow */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    /* For IE */
+    background-image: none;
+    padding-right: 2.5rem;
+    /* Leave space for custom arrow */
+    cursor: pointer;
+
+    background: white url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="22" fill="none" stroke="%230D1B2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>') no-repeat right 1rem center;
+}
+
+.formInputSelect select option[disabled] {
+    opacity: 1;
+    color: #CACACA;
+    pointer-events: none;
+    user-select: none;
+}
+
+.formInputSelect select:hover option[disabled],
+.formInputSelect select:focus option[disabled] {
+    color: #CACACA !important;
+    opacity: 1 !important;
+}
+
+
+.buttonWrapper {
+    width: 100%;
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.submitButton {
+    background-color: var(--light-blue);
+    height: 41px;
+    padding: 0 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    transition: 0.3s ease;
+}
+
+.submitButton p {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.submitButton:hover {
+    background-color: var(--blue);
+}
+
+.cancelButton {
+    width: 97px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cancelButton button {
+    color: var(--link-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1%;
+    text-decoration: underline;
+}
+
+.errorMessage {
+    width: 100%;
+    text-align: start;
+    font-weight: 500;
+    color: var(--red);
+    font-size: 1.3rem;
+    margin-top: 4px;
+}

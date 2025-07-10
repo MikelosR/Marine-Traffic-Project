@@ -1,0 +1,150 @@
+.popup {
+    background-color: rgba(27, 38, 59, .85);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 1px solid #1B263B;
+    border-radius: 5px;
+
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: white !important;
+    letter-spacing: 1px;
+    min-width: 250px;
+    max-width: 400px;
+    z-index: 77777 !important;
+
+}
+
+.popupHover {
+
+    min-width: 200px !important;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header h3 {
+    width: 100%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: 1rem;
+}
+
+.headerIcons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: .75rem;
+}
+
+
+.vesselType {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.infoList ul {
+    list-style: none;
+
+    padding: unset;
+    margin: unset;
+    word-break: break-all;
+}
+
+
+.shipDetailsButton {
+    width: 100%;
+    height: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 .9rem;
+    gap: 1rem;
+    background-color: rgba(13, 27, 42, .9);
+    border-radius: 3px;
+}
+
+.shipDetailsButton span {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.popupButtons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+
+.pastTrackButton,
+.addFleetButton {
+    padding: 0px 15px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    gap: 7px;
+    border: 1px solid rgba(13, 27, 42, .9);
+    transition: 0.3s ease;
+    background-color: rgba(13, 27, 42, .9);
+}
+
+
+
+.pastTrackButton p,
+.addFleetButton p {
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: white !important;
+    transition: 0.3s ease;
+}
+
+.pastTrackButton:hover,
+.addFleetButton:hover {
+    background-color: var(--blue);
+    border-color: var(--blue);
+}
+
+.addFleetButton:hover svg {
+    transition: 0.3s ease;
+}
+
+.addFleetButton:hover svg path {
+    stroke: white;
+}
+
+
+.inFleetButton:hover {
+    background-color: #ED2436;
+    border-color: #ED2436;
+}
+
+.inFleetButton:hover svg path {
+    background-color: #ED2436;
+    stroke: white;
+    fill: white;
+}
+
+.inFleetButton svg path {
+    stroke: #ED2436;
+    fill: #ED2436;
+}

@@ -1,0 +1,26 @@
+/* src/components/ZoneToolbar.module.css */
+.toolbar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 8px;
+  z-index: 1200;
+}
+
+.btn,
+.btnDanger {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid var(--white-transparent);
+  background: rgba(27, 38, 58, 0.8);
+  color: var(--white-transparent);
+  transition: background 0.2s;
+}
+.btn:hover:not(:disabled) { background: #2f4a6b; color: #fff; }
+.btn:disabled            { opacity: 0.5; cursor: not-allowed; }
+
+.btnDanger:hover         { background: #e63946; color: #fff; }

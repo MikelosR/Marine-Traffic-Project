@@ -1,0 +1,67 @@
+# application.yml
+# Spring Boot will configure how the Spring Boot application connects to those services
+
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/seax_db}
+    username: ${SPRING_DATASOURCE_USERNAME:seax_user}
+    password: ${SPRING_DATASOURCE_PASSWORD:secret}
+    driver-class-name: org.postgresql.Driver
+
+
+  jpa:
+    hibernate:
+      ddl-auto: update #<== This creates/updates tables automatically!
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  kafka:
+    bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    consumer:
+      bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:9092}  #Explicitly set for consumer
+      group-id: seax-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:9092}  #Explicitly set for producer
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+  #DISABLE Spring Cloud Zookeeper (your app doesn't need direct Zookeeper connection)
+  cloud:
+    zookeeper:
+      enabled: false
+      config:
+        enabled: false
+        import-check:
+          enabled: false
+
+  config:
+    import: "optional:zookeeper:"
+
+  main:
+    allow-bean-definition-overriding: true
+
+  #EXCLUDE Zookeeper Auto Configuration
+  autoconfigure:
+    exclude:
+      - org.springframework.cloud.zookeeper.ZookeeperAutoConfiguration
+
+logging:
+  level:
+    root: INFO
+    org.springframework.kafka: INFO
+    com.seax: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health

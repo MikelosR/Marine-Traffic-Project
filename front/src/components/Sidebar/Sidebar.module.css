@@ -1,0 +1,169 @@
+.sidebar {
+  background-color: #1b263a;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  top: 50px;
+  right: 50px;
+  border-radius: 10px;
+  width: 60px;
+  padding: 20px;
+  font-size: 2.2rem;
+  justify-content: start;
+
+  align-items: center;
+  cursor: default;
+  max-height: calc(100vh - 211px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  gap: .5rem;
+  margin-bottom: 3rem;
+
+}
+
+
+.expanded {
+  width: auto;
+  min-width: 160px;
+  align-items: flex-start;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: #6aa0d1;
+}
+
+
+
+.iconBox,
+.searchBox {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+}
+
+.iconBoxExpanded {
+  width: 100%;
+}
+
+
+.iconBox:hover {
+  border: 0.5px solid #2f4a6b;
+  background-color: #2f4a6b;
+}
+
+.iconBoxNoHover:hover {
+  border: unset !important;
+  background-color: unset !important;
+}
+
+.iconBoxSelected .iconTitleContainer {
+  color: white;
+  border: 0.5px solid #2f4a6b;
+  background-color: #2f4a6b;
+}
+
+.iconTitleContainer {
+  display: flex;
+  justify-content: space-between;
+  /* space out icon and title */
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  color: #6aa0d1;
+  /* default color */
+}
+
+.iconTitleContainer:hover {
+  background-color: #2f4a6b;
+  color: white;
+  /* hover color for both icon and title */
+}
+
+.iconLeft,
+.titleRight {
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+  /* prevent wrapping */
+
+  line-height: 1.2;
+}
+
+
+.titleRight {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.searchContainer {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.searchBox {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background-color: #2f4a6b;
+  border-radius: 8px;
+  padding: 6px 12px;
+  color: white;
+
+}
+
+.searchIconBox span {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.searchIconBox:hover span svg {
+  color: white;
+}
+
+.searchIcon {
+  font-size: 17px;
+  color: #6aa0d1;
+  margin-right: 8px;
+}
+
+.searchInput {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 17px;
+  flex: 1;
+}
+
+.searchInput::placeholder {
+  color: #6aa0d1;
+}
+
+.dropdown {
+  background-color: #2f4a6b;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  color: white;
+  font-size: 17px;
+  outline: none;
+  cursor: pointer;
+}
+
+.sidebarFiltersWrapper {
+  width: 100%;
+}

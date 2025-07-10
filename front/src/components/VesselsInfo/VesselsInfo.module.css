@@ -1,0 +1,244 @@
+.vesselWrapper {
+    background-color: white;
+    width: 100%;
+    min-height: calc(100vh - 111px);
+    padding-top: 8.5rem;
+    padding-bottom: 5%;
+    max-width: 1080px;
+    margin: auto;
+    display: flex;
+}
+
+.vesselInfoBox {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+    border: 1px solid #E0E1DD;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.vesselHead {
+    width: 100%;
+    height: 72px;
+    padding: 1rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #E0E1DD;
+}
+
+.vesselHeadLeft {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.vesselType {
+    height: 50px;
+    display: flex;
+    padding: .5rem 0;
+}
+
+.vesselType svg {
+    width: auto;
+    height: 100%;
+}
+
+.headInfo {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.vesselTitle {
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: black;
+    letter-spacing: 1px;
+}
+
+.vesselCountry {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--light-blue);
+    letter-spacing: 1px;
+}
+
+.backButton {
+    background-color: white;
+    border: 1px solid var(--dark-blue);
+    padding: 0 1.5rem;
+    height: 41px;
+    width: 93px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.backButtonText {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--dark-blue);
+    letter-spacing: 1px;
+}
+
+.backButton:hover {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.vesselBody {
+    padding: 2.5rem;
+    width: 100%;
+}
+
+.vesselBodyInner {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+}
+
+.vesselCol {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.vesselColInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.vesselLabel {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: black;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.infoTable {
+    width: 100%;
+    border-collapse: separate;
+    border: 1px solid #E0E1DD;
+    border-radius: 3px;
+    border-spacing: 0;
+}
+
+
+
+.infoTable td {
+    width: 50%;
+    padding: 0 2.3rem;
+    height: 52px;
+    vertical-align: center;
+}
+
+.infoTable tbody tr:nth-child(odd) {
+    background-color: #FAFAFA;
+}
+
+.labelCell {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--light-blue);
+}
+
+.valueCell {
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: var(--dark-blue);
+}
+
+.vesselButtonWrapper {
+    width: 100%;
+    height: 95px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pastButton,
+.addButton {
+    background-color: var(--light-blue);
+    height: 41px;
+    padding: 0 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    transition: 0.3s ease;
+}
+
+.pastButton p,
+.addButton p {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.pastButton:hover,
+.addButton:hover {
+    background-color: var(--blue);
+}
+
+.inFleet {
+    padding: 0px 15px;
+    height: 41px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    gap: 7px;
+    border: 1px solid #ED2436;
+    transition: 0.3s ease;
+}
+
+.inFleet p {
+    display: none;
+}
+
+.inFleet svg path {
+    fill: #ED2436;
+    stroke: #ED2436;
+}
+
+.inFleet:hover {
+    background-color: #ED2436;
+
+}
+
+.inFleet:hover svg path {
+    fill: white;
+    stroke: white;
+}
+
+.noResultsWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.noResultsWrapper p {
+    margin-top: -20px;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--very-dark-blue);
+    letter-spacing: 1px;
+}
