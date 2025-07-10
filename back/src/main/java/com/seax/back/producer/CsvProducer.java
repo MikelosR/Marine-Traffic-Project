@@ -32,7 +32,7 @@ public class CsvProducer {
              CSVReader reader = new CSVReader(bufferedReader)) {
 
             if (is == null) {
-                System.err.println("❌ CSV file not found.");
+                System.err.println("XXX CSV file NOT found. XXX");
                 return;
             }
 
@@ -44,7 +44,7 @@ public class CsvProducer {
                 try {
                     //Check if row has enough columns
                     if (nextLine.length < 9) {
-                        System.err.println("❌ Skipping row - not enough columns: " + String.join(",", nextLine));
+                        System.err.println("XXX Skipping row - not enough columns: " + String.join(",", nextLine) + " XXX");
                         continue;
                     }
 
@@ -73,15 +73,15 @@ public class CsvProducer {
                     String json = mapper.writeValueAsString(data);
                     //null means we’re not using a key
                     kafkaTemplate.send(new ProducerRecord<>("ais-data", null, json));
-                    System.out.println("✔ Sent: " + json);
+                    System.out.println(":) Sent: " + json + " :)");
                     lastTimestamp = currentTimestamp;
 
                 } catch (NumberFormatException e) {
                     //Handle bad number format gracefully
-                    System.err.println("❌ Skipping row - invalid number format: " + String.join(",", nextLine));
+                    System.err.println("XXX Skipping row - invalid number format: " + String.join(",", nextLine));
                 } catch (Exception e) {
                     //Handle any other errors gracefully
-                    System.err.println("❌ Skipping row - unexpected error: " + String.join(",", nextLine));
+                    System.err.println("XXX Skipping row - unexpected error: " + String.join(",", nextLine));
                     e.printStackTrace();
                 }
             }

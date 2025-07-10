@@ -41,14 +41,6 @@ public interface VesselRepository extends JpaRepository<Vessel, Long> { //Work w
             "ORDER BY v.name")
     List<Vessel> searchVesselsByNameOrMmsi(@Param("query") String query, Pageable pageable);
 
-    @Query(
-            value = """
-        SELECT v.*\n  FROM vessels v\n  JOIN user_fleet_vessels ufv\n    ON v.mmsi = ufv.vessel_mmsi\n  WHERE ufv.user_id = :userId\n  ORDER BY v.name;
-      """,
-            nativeQuery = true
-    )
-    List<Vessel> findAllByUserIdAndFleet(@Param("userId") Long userId);
-
     @Query("SELECT v FROM Vessel v WHERE v.latitude BETWEEN :minLat AND :maxLat AND v.longitude BETWEEN :minLon AND :maxLon")
     List<Vessel> findVesselsInBoundingBox(@Param("minLat") double minLat, @Param("maxLat") double maxLat, @Param("minLon") double minLon, @Param("maxLon") double maxLon);
     //For cleanup

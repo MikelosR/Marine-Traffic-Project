@@ -13,6 +13,7 @@ import java.util.List;
 @Repository
 public interface VesselPositionHistoryRepository extends JpaRepository<VesselPositionHistory, Long> {
 
+    //Get track within time range
     @Query("SELECT vph FROM VesselPositionHistory vph " +
             "WHERE vph.mmsi = :mmsi " +
             "AND vph.historyTimestamp >= :sinceTimestamp " +
@@ -26,15 +27,4 @@ public interface VesselPositionHistoryRepository extends JpaRepository<VesselPos
     @Query("DELETE FROM VesselPositionHistory vph " +
             "WHERE vph.historyTimestamp < :cutoffTimestamp")
     void deleteOldPositions(@Param("cutoffTimestamp") Long cutoffTimestamp);
-
-
-    //Get track within time range (more precise)
-    @Query("SELECT vph FROM VesselPositionHistory vph " +
-            "WHERE vph.mmsi = :mmsi " +
-            "AND vph.historyTimestamp BETWEEN :startTimestamp AND :endTimestamp " +
-            "ORDER BY vph.historyTimestamp ASC")
-    List<VesselPositionHistory> findByMmsiAndTimestampBetween(
-            @Param("mmsi") Long mmsi,
-            @Param("startTimestamp") Long startTimestamp,
-            @Param("endTimestamp") Long endTimestamp);
 }

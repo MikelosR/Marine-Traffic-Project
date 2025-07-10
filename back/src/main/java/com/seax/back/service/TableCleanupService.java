@@ -3,7 +3,6 @@ package com.seax.back.service;
 import com.seax.back.repository.VesselRepository;
 import com.seax.back.repository.VesselPositionHistoryRepository;
 import com.seax.back.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,9 +27,9 @@ public class TableCleanupService {
         try {
             long count = positionHistoryRepository.count();
             positionHistoryRepository.deleteAll();
-            System.out.println("🗑️ Cleaned vessel_position_history table: " + count + " records deleted");
+            System.out.println("️🗑️ Cleaned vessel_position_history table: " + count + " records deleted xx");
         } catch (Exception e) {
-            System.err.println("❌ Error cleaning position history table: " + e.getMessage());
+            System.err.println("ERROR cleaning position history table: " + e.getMessage());
         }
     }
 
@@ -42,7 +41,7 @@ public class TableCleanupService {
             vesselRepository.deleteAll();
             System.out.println("🗑️ Cleaned vessels table: " + count + " records deleted");
         } catch (Exception e) {
-            System.err.println("❌ Error cleaning vessels table: " + e.getMessage());
+            System.err.println("ERROR cleaning vessels table: " + e.getMessage());
         }
     }
 
@@ -54,11 +53,11 @@ public class TableCleanupService {
             userRepository.deleteAll();
             System.out.println("🗑️ Cleaned users table: " + count + " records deleted");
         } catch (Exception e) {
-            System.err.println("❌ Error cleaning users table: " + e.getMessage());
+            System.err.println("ERROR cleaning users table: " + e.getMessage());
         }
     }
 
-    //🧹 Master cleanup method - call individual methods as needed
+    //Master cleanup method - call individual methods as needed
     public void cleanAllTables() {
         System.out.println("🧹 CLEANING ALL TABLES...");
 
@@ -70,6 +69,6 @@ public class TableCleanupService {
 
         //Clean users (COMMENT THIS LINE IF YOU DON'T WANT TO CLEAN USERS)
         //cleanUsersTable();
-        System.out.println("✅ Table cleanup complete!");
+        System.out.println(" :) Table cleanup complete! :) ");
     }
 }

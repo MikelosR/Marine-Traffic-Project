@@ -47,7 +47,7 @@ public class StaticDataBatchProcessor {
             System.out.println("📊 Final vessel count: " + finalVesselSet.size() + " unique MMSIs");
 
         } catch (Exception e) {
-            System.err.println("❌ CRITICAL ERROR during static data batch processing: " + e.getMessage());
+            System.err.println("CRITICAL ERROR during static data batch processing: " + e.getMessage());
             e.printStackTrace();
             throw new RuntimeException("Failed to initialize vessel database", e);
         }
@@ -61,7 +61,7 @@ public class StaticDataBatchProcessor {
              CSVReader reader = new CSVReader(new InputStreamReader(is))) {
 
             if (is == null) {
-                throw new RuntimeException("❌ CRITICAL: vessel_types.csv not found in resources folder");
+                throw new RuntimeException("CRITICAL: vessel_types.csv not found in resources folder");
             }
 
             reader.readNext(); //Skip header
@@ -80,21 +80,21 @@ public class StaticDataBatchProcessor {
                         if (!vesselTypesMap.containsKey(mmsi)) {
                             //Save both MMSI and type
                             vesselTypesMap.put(mmsi, vesselType);
-                        } else System.err.println("❌ Dublicate mmsi vessel_types");
+                        } else System.err.println("ERROR: Dublicate mmsi vessel_types");
 
                     } catch (NumberFormatException e) {
-                        System.err.println("⚠️ Invalid MMSI at line " + lineNumber + ": " + nextLine[0]);
+                        System.err.println("ERROR: Invalid MMSI at line " + lineNumber + ": " + nextLine[0]);
                     }
                 } else {
-                    System.err.println("⚠️ Insufficient columns at line " + lineNumber + ": " + String.join(",", nextLine));
+                    System.err.println("ERROR: Insufficient columns at line " + lineNumber + ": " + String.join(",", nextLine));
                 }
             }
 
-            System.out.println("✅ vessel_types.csv validation complete:");
+            System.out.println(":) vessel_types.csv validation COMPLETE :)");
             System.out.println("   - Unique MMSIs with types: " + vesselTypesMap.size());
 
         } catch (Exception e) {
-            System.err.println("❌ Error loading vessel_types.csv: " + e.getMessage());
+            System.err.println("ERROR: Error loading vessel_types.csv: " + e.getMessage());
             throw new RuntimeException("Failed to load vessel types", e);
         }
         return vesselTypesMap;
@@ -108,7 +108,7 @@ public class StaticDataBatchProcessor {
              CSVReader reader = new CSVReader(new InputStreamReader(is))) {
 
             if (is == null) {
-                throw new RuntimeException("❌ CRITICAL: MMSI_Country_Codes.csv not found in resources folder");
+                throw new RuntimeException("CRITICAL: MMSI_Country_Codes.csv not found in resources folder");
             }
 
             String[] nextLine;
@@ -120,13 +120,13 @@ public class StaticDataBatchProcessor {
                         String countryName = nextLine[1].trim();
                         countryCodes.put(countryCode, countryName);
                     } catch (NumberFormatException e) {
-                        System.err.println("⚠️ Invalid country code line: " + String.join(",", nextLine));
+                        System.err.println(" Invalid country code line: " + String.join(",", nextLine));
                     }
                 }
             }
 
         } catch (Exception e) {
-            System.err.println("❌ Error loading MMSI_Country_Codes.csv: " + e.getMessage());
+            System.err.println(" Error loading MMSI_Country_Codes.csv: " + e.getMessage());
             System.exit(1); //Terminate program
         }
         return countryCodes;
@@ -140,7 +140,7 @@ public class StaticDataBatchProcessor {
              CSVReader reader = new CSVReader(new InputStreamReader(input_stream))) {
 
             if (input_stream == null) {
-                throw new RuntimeException("❌ CRITICAL: nari_static.csv not found in resources folder");
+                throw new RuntimeException(" CRITICAL: nari_static.csv not found in resources folder");
             }
 
             reader.readNext(); //Skip header
@@ -178,7 +178,7 @@ public class StaticDataBatchProcessor {
                         recordsProcessed++;
 
                     } catch (NumberFormatException e) {
-                        System.err.println("⚠️ Invalid MMSI in static data: " + nextLine[0]);
+                        System.err.println(" Invalid MMSI in static data: " + nextLine[0]);
                     }
                 }
             }
@@ -187,7 +187,7 @@ public class StaticDataBatchProcessor {
                     " consolidated vessel profiles");
 
         } catch (Exception e) {
-            System.err.println("❌ Error loading nari_static.csv: " + e.getMessage());
+            System.err.println(" ERROR: loading nari_static.csv: " + e.getMessage());
             //Continue without static info - vessels will use default names
         }
         return consolidatedInfo;
@@ -225,7 +225,7 @@ public class StaticDataBatchProcessor {
             } else {
                 //Vessel is ONLY in staticInfoMap, NOT in vesselTypesMap
                 vessel.setVesselType("Unknown Vessel Type");
-                System.out.println("   ➡️ Type: 'Unknown' (Not in vessel_types.csv)");
+                System.out.println(" Type: 'Unknown' (Not in vessel_types.csv): " + vessel.getMmsi());
             }
 
             //RULE 2: Set static info (name, IMO, callsign)
@@ -254,29 +254,17 @@ public class StaticDataBatchProcessor {
                     country = countryCodesMap.get(countryCode);
                 } else {
                     //3-digit prefix not found in country codes map
-                    System.out.println("   ⚠️ Country code " + countryCode + " not found in countryCodesMap");
+                    System.out.println(" Country code " + countryCode + " NOT FOUND in countryCodesMap");
                 }
                 vessel.setCountry(country);
             } else {
                 //MMSI has 2 or fewer digits
                 vessel.setCountry(country);
-                System.out.println("   ⚠️ MMSI " + mmsi + " has only " + mmsiStr.length() + " digits - cannot extract country");
+                System.out.println(" MMSI " + mmsi + " has only " + mmsiStr.length() + " digits - CANNOT extract country");
             }
 
             finalVesselSet.add(vessel);
         }
-
-        /*if (finalVesselSet.size() > 0) {
-            System.out.println("\n🔍 Sample of created vessels:");
-            int sampleCount = 0;
-            for (Vessel v : finalVesselSet) {
-                if (sampleCount++ >= 3) break;
-                System.out.println("   " + sampleCount + ". MMSI: " + v.getMmsi() +
-                        ", Type: '" + v.getVesselType() +
-                        "', Name: '" + v.getName() +
-                        "', Country: '" + v.getCountry() + "'");
-            }
-        }*/
 
         return finalVesselSet;
     }

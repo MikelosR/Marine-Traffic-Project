@@ -44,15 +44,15 @@ public class AisDataConsumer {
     @PostConstruct
     public void init() {
 
-        System.out.println("✅ AisDataConsumer initialized and listening.");
+        System.out.println(":) AisDataConsumer initialized and listening. :)");
         //Load country codes from StaticDataBatchProcessor
         try {
             Map<Integer, String> loadedCodes = staticDataBatchProcessor.loadCountryCodesMap();
             //modifying contents, not reassigning reference
             countryCodesCache.putAll(loadedCodes);
-            System.out.println("📊 Loaded " + countryCodesCache.size() + " country codes into cache");
+            System.out.println("...Loaded " + countryCodesCache.size() + " country codes into cache");
         } catch (Exception e) {
-            System.err.println("⚠️ Failed to load country codes: " + e.getMessage());
+            System.err.println("XXX Failed to load country codes: " + e.getMessage());
             //Continue with empty cache
         }
     }
@@ -66,7 +66,7 @@ public class AisDataConsumer {
         try {
             //converts a JSON string into a Java object
             AisData data = objectMapper.readValue(message, AisData.class);
-            System.out.println("✅ Received AisData:");
+            System.out.println(":) Received AisData:");
             System.out.println("MMSI: " + data.getSourcemmsi());
             System.out.println("Lat: " + data.getLat() + ", Lon: " + data.getLon());
             System.out.println("Speed: " + data.getSpeedoverground() + " knots");
@@ -81,14 +81,14 @@ public class AisDataConsumer {
             Vessel vessel;
             if (!vesselOpt.isPresent()) {
                 //Vessel not found - make one, with default static data
-                System.out.println("❌ Vessel NOT FOUND in database!" + data.getSourcemmsi());
+                System.out.println("XXX Vessel NOT FOUND in database!" + data.getSourcemmsi());
                 vessel = createUnknownVessel(data.getSourcemmsi());
                 //Save the new vessel.
                 try {
                     vesselRepository.save(vessel);
-                    System.out.println("💾 Created new vessel with MMSI: " + data.getSourcemmsi());
+                    System.out.println(":) Created new vessel with MMSI: " + data.getSourcemmsi());
                 } catch (Exception e) {
-                    System.err.println("❌ Failed to save new vessel: " + e.getMessage());
+                    System.err.println("XXX Failed to save new vessel: " + e.getMessage());
                 }
             } else {
                 //VESSEL EXISTS - GET IT FROM THE OPTIONAL!
@@ -106,13 +106,13 @@ public class AisDataConsumer {
                 data.setCallsign(vessel.getCallsign());
                 System.out.println("📍 Updated position for MMSI: " + data.getSourcemmsi());
             } catch (Exception e) {
-                System.err.println("❌ Failed to update position for MMSI: " + data.getSourcemmsi());
+                System.err.println("XXX FAILED to update position for MMSI: " + data.getSourcemmsi());
             }
             //Send to WebSocket clients
             webSocketController.sendAisUpdate(data);
 
         } catch (Exception e) {
-            System.err.println("❌ Failed to parse Kafka message: " + message);
+            System.err.println("XXX FAILED to parse Kafka message: " + message);
             e.printStackTrace();
         }
     }
@@ -130,7 +130,7 @@ public class AisDataConsumer {
             return "Unknown country";
 
         } catch (Exception e) {
-            System.err.println("⚠️ Error extracting country for MMSI " + mmsi + ": " + e.getMessage());
+            System.err.println("XXX ERROR extracting country for MMSI " + mmsi + ": " + e.getMessage());
             return "Unknown country";
         }
     }

@@ -22,12 +22,10 @@ public class AdminSeeder {
     //This runs when Spring Boot starts
     @EventListener(ApplicationReadyEvent.class)
     public void seedAdmins() {
-        System.out.println("🏠 Basement Dweller Admin Seeder Starting...");
-
         createAdminIfNotExists("admin1@seax.com", "Admin", "One", "SeaXAdmin2025!");
         createAdminIfNotExists("admin2@seax.com", "Admin", "Two", "SeaXAdmin2025!");
 
-        System.out.println("✅ Admin accounts ready for production!");
+        System.out.println("<<<<Admin accounts ready for production!>>>>");
     }
 
     private void createAdminIfNotExists(String email, String firstName, String lastName, String password) {
@@ -42,15 +40,15 @@ public class AdminSeeder {
             admin.setRole("ADMIN"); //ADMIN FROM THE START!
 
             userRepository.save(admin);
-            System.out.println("🔥 Created admin: " + email);
+            System.out.println("<<<<Created admin: " + email + " >>>>");
         } else {
             //Ensure existing user is admin
             if (!"ADMIN".equals(existingUser.getRole())) {
                 existingUser.setRole("ADMIN");
                 userRepository.save(existingUser);
-                System.out.println("🔄 Updated " + email + " to ADMIN role");
+                System.out.println("<<<<Updated " + email + " to ADMIN role>>>>");
             }
-            System.out.println("✅ Admin exists: " + email);
+            System.out.println("<<<<Admin exists: " + email + " >>>>");
         }
     }
 }
