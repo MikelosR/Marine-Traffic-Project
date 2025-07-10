@@ -43,8 +43,8 @@ public class StaticDataBatchProcessor {
             List<Vessel> vesselsList = new ArrayList<>(finalVesselSet);
             vesselRepository.saveAll(vesselsList); //.saveAll() comes from extends JpaRepository<Vessel, Long>
 
-            System.out.println("✅ Static vessel database initialization complete!");
-            System.out.println("📊 Final vessel count: " + finalVesselSet.size() + " unique MMSIs");
+            System.out.println(":)) Static vessel database initialization complete!");
+            System.out.println(":)) Final vessel count: " + finalVesselSet.size() + " unique MMSIs");
 
         } catch (Exception e) {
             System.err.println("CRITICAL ERROR during static data batch processing: " + e.getMessage());
