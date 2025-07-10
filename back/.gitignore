@@ -101,3 +101,4 @@ yarn-error.log*
 orders.md
 src/main/resources/nari_dynamic.csv
 src/main/resources/nari_static.csv
+../.idea
