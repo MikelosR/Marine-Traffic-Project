@@ -1,34 +1,15 @@
 package com.seax.back.model;
 
 import jakarta.persistence.Embeddable;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 
-@Embeddable
+@Embeddable //JPA annotation that tells Hibernate that this class is not a separate entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Point {
-
     private long lat;
     private long lon;
-
-    public Point() {
-    }
-
-    public Point(long lat, long lon) {
-        this.lat = lat;
-        this.lon = lon;
-    }
-
-    public long getLat() {
-        return lat;
-    }
-
-    public void setLat(long lat) {
-        this.lat = lat;
-    }
-
-    public long getLon() {
-        return lon;
-    }
-
-    public void setLon(long lon) {
-        this.lon = lon;
-    }
 }
