@@ -1,1 +1,19 @@
+#Ignore common generated/vendor files
+node_modules/* linguist-vendored
+target/* linguist-vendored
+build/* linguist-vendored
+dist/* linguist-vendored
+*.min.js linguist-vendored
+
+#Force language detection for backend
+back/**/*.java linguist-detectable=true
 back/* linguist-language=Java
+
+#Force language detection for frontend
+front/**/*.js linguist-detectable=true
+front/**/*.ts linguist-detectable=true
+front/* linguist-language=JavaScript
+
+#Make sure important files are detected
+*.java linguist-detectable=true
+*.js linguist-detectable=true
